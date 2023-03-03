@@ -1,0 +1,15 @@
+.basecss_input {
+  @apply focus:border-0 focus:outline-blue-500 rounded-sm drop-shadow-md text-sm text-black font-semibold p-2;
+}
+.primary {
+  @apply top-0;
+}
+.outline {
+  @apply border border-white focus:outline-0 bg-transparent text-white;
+}
+.smallWidth {
+  @apply w-[90vw] md:w-52;
+}
+.fullWidth {
+  @apply w-[90vw];
+}

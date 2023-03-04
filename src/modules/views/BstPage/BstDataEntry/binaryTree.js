@@ -1,4 +1,4 @@
-export function Node(value, left, right, parent = '', children = []) {
+function Node(value, left, right, parent = '', children = []) {
   this.value = value;
   this.right = right;
   this.left = left;
@@ -8,29 +8,19 @@ export function Node(value, left, right, parent = '', children = []) {
   this.isLeft = null;
 }
 
-export function createTree(arr) {
+ function createTree(arr) {
   for (var i = 1; i < arr.length; i++) {
     nodeDirection(arr[0], arr[i]);
   }
 
-  // remove();
   try {
-    // create tree ui and past  data to tree
-    // drawGraph(arr);
     createData(arr[0]);
   } catch {
     console.log('No Input');
   }
 }
 
-export function remove() {
-  var graph = document.querySelector('svg');
-  if (graph) {
-    graph.parentElement.removeChild(graph);
-  }
-}
-
-export function nodeDirection(root, node) {
+function nodeDirection(root, node) {
   var nodeValue = Number(node.value);
   var rootValue = Number(root.value);
   if (nodeValue < rootValue) {
@@ -49,8 +39,7 @@ export function nodeDirection(root, node) {
     }
   }
 }
-
-export function createData(node) {
+ function createData(node) {
   if (node == null) {
     return;
   }

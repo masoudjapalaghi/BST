@@ -22,8 +22,7 @@ const DataEntry: FC<PropDataEntry> = ({ setListNode }) => {
       }
     }
     const removeDublicate = DeleteDuplicateInArray(num);
-    // const removeDublicate = DeleteDuplicateInArray(num);
-    // console.log(removeDublicate);
+
     var root = createNodes(removeDublicate);
     setListNode(root);
   };

@@ -1,8 +1,8 @@
-const Node = ({ data, childClass }) => {
+const Node = ({ data, isChild }) => {
   const renderRoot = (children) => {
     if (children) {
       return children.map((child, index) => {
-        return <Node key={index} data={child} childClass />;
+        return <Node key={index} data={child} isChild />;
       });
     }
 
@@ -15,9 +15,9 @@ const Node = ({ data, childClass }) => {
     <>
       {data.isRight
         ? isFill && (
-            <div className="absolute top-24 left-24 ">
-              <div className=" relative">
-                <span className="absolute border-t border-dashed inline-block w-20 h-1 bg-transparent  bottom-14 -left-16 rotate-45" />
+            <div className="absolute top-24 left-24">
+              <div className=" relative ">
+                <span className="absolute border-t border-dashed inline-block w-20  bg-transparent  bottom-14 -left-16 rotate-45" />
                 <span className="bg-white p-4 rounded-full text-black text-lg  font-extrabold ">
                   {data.value}
                 </span>

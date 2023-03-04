@@ -1,7 +1,7 @@
 // Module
 import Root from '@components/Tree/Root';
 
-const BstThree = ({ listNode }) => {
+const BstTree = ({ listNode }) => {
   function _rightOrLeftChild(array, rol) {
     return array.filter(
       (item) => item[rol] === true && item.value !== 'Empty'
@@ -27,4 +27,4 @@ const BstThree = ({ listNode }) => {
   );
 };
 
-export default BstThree;
+export default BstTree;

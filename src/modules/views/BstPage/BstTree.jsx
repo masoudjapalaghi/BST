@@ -8,12 +8,8 @@ const BstTree = ({ listNode }) => {
     )[0];
   }
   return (
-    <>
+    <div>
       {listNode.map((node, index) => {
-        const root = listNode[0];
-        // const firstChild = root.children[0];
-        // const secoundChild = root.children[1];
-
         return (
           <Root
             key={index}
@@ -23,7 +19,7 @@ const BstTree = ({ listNode }) => {
           />
         );
       })}
-    </>
+    </div>
   );
 };
 

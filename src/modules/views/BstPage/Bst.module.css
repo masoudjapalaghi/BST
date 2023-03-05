@@ -1,7 +1,16 @@
 .main {
-  @apply flex flex-col items-center min-h-screen;
+  @apply flex flex-col items-center min-h-screen text-white;
 }
+.mainSecondary {
+  @apply flex flex-col items-center min-h-screen text-white;
 
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
 .center {
   @apply flex justify-center items-center relative py-10;
 }

@@ -9,7 +9,6 @@ export const useLazyLoadComponent = (options) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const scrollHight = useScroll(1000);
-  // console.log(test)
   const callbackFunction = (entries) => {
     const [entry] = entries;
     setIsVisible(entry.isIntersecting);
@@ -39,11 +38,3 @@ export const useLazyLoadComponent = (options) => {
 
   return [containerRef, isVisible, setDone];
 };
-
-// #endregion useElementOnScreen
-// how to use
-// const [refElement, isVisible] = useElementOnScreen({
-//   root: null,
-//   rootMargin: "0px",
-//   threshold: [1, 1, 0.55],
-// });

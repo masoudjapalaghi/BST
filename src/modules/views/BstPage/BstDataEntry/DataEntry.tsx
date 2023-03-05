@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, memo } from 'react';
+import { ChangeEvent, FC, memo, useTransition } from 'react';
 // Import compoents
 import { Input } from '@components/Forms';
 // utils
@@ -7,9 +7,11 @@ import { DeleteDuplicateInArray } from 'src/common/utils';
 
 type PropDataEntry = {
   setListNode: (value: object[]) => void;
+  startTransition: (value: Function ) => void;
 };
 
-const DataEntry: FC<PropDataEntry> = ({ setListNode }) => {
+const DataEntry: FC<PropDataEntry> = ({ setListNode, startTransition }) => {
+  
   console.log('re-render');
 
   const getInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -23,8 +25,10 @@ const DataEntry: FC<PropDataEntry> = ({ setListNode }) => {
     }
     const removeDublicate = DeleteDuplicateInArray(num);
 
-    var root = createNodes(removeDublicate);
-    setListNode(root);
+    startTransition(() => {
+      var root = createNodes(removeDublicate);
+      setListNode(root);
+    });
   };
 
   return (

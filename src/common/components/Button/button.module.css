@@ -1,0 +1,16 @@
+.basecss_btn {
+  @apply text-[royalBlue] py-2  px-4 rounded-lg text-sm font-bold;
+}
+
+.primary {
+  @apply  text-white bg-[royalBlue];
+}
+.outline {
+  @apply bg-transparent border border-[royalBlue];
+}
+.smallWidth {
+  @apply w-[90vw] md:w-52;
+}
+.fullWidth {
+  @apply w-[90vw];
+}

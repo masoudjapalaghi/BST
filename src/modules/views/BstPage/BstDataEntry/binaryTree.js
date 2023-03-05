@@ -6,15 +6,31 @@ function Node(value, left, right, parent = '', children = []) {
   this.children = children;
   this.isRight = null;
   this.isLeft = null;
+  this.position = {};
 }
 
- function createTree(arr) {
+function getPosition(position, isLeft = false) {
+  var axisX = 350;
+  var axisY = 80;
+  const { x, y } = position;
+  return {
+    x: isLeft ? x - axisX + y : x + axisX - y,
+    y: y + axisY,
+  };
+}
+
+function createTree(arr) {
+  const root = arr[0];
+  if (root) {
+    root.position = { x: 900, y: 60 };
+  }
+
   for (var i = 1; i < arr.length; i++) {
-    nodeDirection(arr[0], arr[i]);
+    nodeDirection(root, arr[i]);
   }
 
   try {
-    createData(arr[0]);
+    createData(root);
   } catch {
     console.log('No Input');
   }
@@ -27,6 +43,7 @@ function nodeDirection(root, node) {
     if (root.left == null) {
       root.left = node;
       node.isLeft = true;
+      node.position = getPosition(root.position, true);
     } else {
       nodeDirection(root.left, node);
     }
@@ -34,12 +51,13 @@ function nodeDirection(root, node) {
     if (root.right == null) {
       root.right = node;
       node.isRight = true;
+      node.position = getPosition(root.position);
     } else {
       nodeDirection(root.right, node);
     }
   }
 }
- function createData(node) {
+function createData(node) {
   if (node == null) {
     return;
   }
@@ -81,6 +99,5 @@ export function createNodes(list) {
   }
 
   createTree(new_list);
-
   return new_list;
 }

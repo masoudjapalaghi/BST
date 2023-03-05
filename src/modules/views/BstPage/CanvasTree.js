@@ -7,7 +7,7 @@ const CanvasTree = ({ listNode }) => {
     const queue = [];
     const black = '#000';
     const white = '#fff';
-    const radius = 20;
+    const radius = 30;
     queue.push(listNode);
     while (queue.length !== 0) {
       const node = queue.shift();
@@ -20,7 +20,8 @@ const CanvasTree = ({ listNode }) => {
         ctx.fillStyle = white;
         ctx.fill();
         ctx.stroke();
-        ctx.strokeText(node.value, x, y);
+        ctx.strokeText(node.value, x - 8, y + 6, 40);
+        ctx.font = '14px Sans-serif';
         node.children.forEach((child) => {
           const { x: x1, y: y1 } = child.position;
           ctx.beginPath();
